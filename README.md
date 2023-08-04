@@ -5,16 +5,18 @@ The final application can ingest any csv file and display the data in sorted ord
 
 # Running the Solution
 
-1. Ensure you have python3 and pandas installed on your system
+1. Ensure you have python3 and pandas installed
 
-2. Place the csv file here: (* *./data/* *)
+2. Place the source csv file here: (* *./data/* *)
 
 3. Update the * *./config/config.ini* * for input_file and sort_column parameters
 
 
-           **input_file** - source data file path
+      **input_file** : source data file path
    
-           **sort_column** - column(s) sort order 
+      **sort_column** : column(s) sort order
+
+      **ascending** : Specify True for ascending vs. False for descending w.r.t column sort order above 
 
 5. Run the script : * *python3 usage_data_agg.py* *
 
