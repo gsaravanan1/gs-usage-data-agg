@@ -12,11 +12,11 @@ The final application can ingest any csv file and display the data in sorted ord
 3. Update the * *./config/config.ini* * for input_file and sort_column parameters
 
 
-    **input_file** - source data file path
+           **input_file** - source data file path
    
-    **sort_column** - column(s) sort order 
+           **sort_column** - column(s) sort order 
 
-5. Run the script using the following command: * *python3 usage_data_agg.py* *
+5. Run the script : * *python3 usage_data_agg.py* *
 
 
 *** The script will read the config file, process the data, and display the sorted output. Any anomalies (invalid AccountId or non-integer values) will be logged separately. ***
