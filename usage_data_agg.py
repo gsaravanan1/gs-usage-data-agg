@@ -1,6 +1,7 @@
 import pandas as pd
 import configparser
 
+
 def parse_date(date_str):
     return pd.to_datetime(date_str, format="%m/%d/%YT%H:%M:%SZ").strftime("%Y-%m-%d")
 
@@ -11,8 +12,9 @@ def read_config(config_file):
     # Read values from the config file
     input_file = config.get("usage_data", "input_file")
     sort_column = config.get("usage_data", "sort_column")
+    ascending = config.get("usage_data", "ascending")
 
-    return input_file, sort_column
+    return input_file, sort_column, ascending
 
 
 def process_file(input_file):
@@ -22,7 +24,7 @@ def process_file(input_file):
     # Handling missing and null values in the 'Metric' column
     df["Metric"] = df["Metric"].fillna("unknown")
 
-    # Convert 'Date' column to datetime
+    # Convert 'Date' column to YYYY-MM-DD format
     df["Date"] = df["Date"].apply(parse_date)
 
     # Filter and log anomalies (invalid AccountId or non-integer values)
@@ -34,9 +36,10 @@ def process_file(input_file):
 
     return grouped_df, anomalies
 
-def main(input_file,sort_column):  
+def main(input_file,sort_column,ascending):  
     data, anomalies = process_file(input_file)
-    sorted_data = data.sort_values(by=list(sort_column.split(',')))
+    sorted_data = data.sort_values(by=sort_column.split(','), ascending=list(map(lambda element1: element1.lower().
+			capitalize() == "True", ascending.split(','))))
     print(sorted_data.to_string(index=False))
     if not anomalies.empty:
         print("\nAnomalies (Invalid AccountId or Non-Integer Values):\n")
@@ -45,5 +48,5 @@ def main(input_file,sort_column):
 
 if __name__ == "__main__":
     config_file = "./config/config.ini"
-    input_file, sort_column = read_config(config_file)
-    main(input_file,sort_column)
+    input_file, sort_column,ascending = read_config(config_file)
+    main(input_file,sort_column,ascending)
