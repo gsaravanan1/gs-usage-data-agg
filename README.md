@@ -21,7 +21,7 @@ The final application can ingest any csv file and display the data in sorted ord
 5. Run the script : * *python3 usage_data_agg.py* *
 
 
-*** The script will read the config file, process the data, and display the sorted output. Any anomalies (invalid AccountId or non-integer values) will be logged separately. ***
+*** The script will read the config file, process the data, and display the sorted output. Any anomalies (invalid AccountId or non-integer values) will be logged and output separately. ***
 
 # Output (expected)
 
