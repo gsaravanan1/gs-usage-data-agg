@@ -1,5 +1,5 @@
 # Execution
-The final application can ingest any csv file and display data in sorted order by the specified column. The sort order column will be provided as input via config file (* *./config/config.ini* *).
+The final application can ingest any csv file and display the data in sorted order by the specified column(s). The sort order column will be provided as input via config file (* *./config/config.ini* *).
 
 
 
@@ -28,3 +28,4 @@ The final application can ingest any csv file and display data in sorted order b
 2023-04-02         10   bytes   5.73
 
 ```
+
