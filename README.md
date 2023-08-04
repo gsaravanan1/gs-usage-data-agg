@@ -10,6 +10,8 @@ The final application can ingest any csv file and display the data in sorted ord
 2. Place the csv file here: (* *./data/* *)
 
 3. Update the * *./config/config.ini* * for input_file and sort_column parameters
+
+
     **input_file** - source data file path
     **sort_column** - column(s) sort order 
 
